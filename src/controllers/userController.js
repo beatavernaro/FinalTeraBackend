@@ -13,13 +13,14 @@ const getAll = async (req, res) => {
     }
 }
 
+
 const createUser = async (req, res) => {
     try {
         const newUser = new userSchema({
             _id: new mongoose.Types.ObjectId(),
-            name: req.body.name,
+            userName: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            /*password: req.body.password,
             birthDate: req.body.birthDate,
             gender: req.body.gender,
             profilePicture: req.body.profilePicture,
@@ -27,7 +28,7 @@ const createUser = async (req, res) => {
             phoneNumber: req.body.phoneNumber,
             linkedin: req.body.linkedin,
             anotherLink: req.body.anotherLink,
-            createdAt: new Date()
+            createdAt: new Date() */
         })
 
         const savedUser = await newUser.save()
@@ -39,6 +40,7 @@ const createUser = async (req, res) => {
     } catch (error) {
         res.status(500).json({
             message: error.message
+            
         })
     }
 }
